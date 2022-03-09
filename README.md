@@ -39,7 +39,7 @@ Create a todos website!
   - Displays the list data that **redirects** to `/todos/:id`
 
 ## Part 3 Show
-![img](https://i.imgur.com/5OdH3Hw.png)
+![img](https://i.imgur.com/jUahWp6.png)
 
 - An `Edit Button Link` to `/todos/:id/edit`
 - Create a `Todos Show Page` under the route `/todos/:id`
@@ -47,7 +47,7 @@ Create a todos website!
   - Displays the data
 
 ## Part 4 New
-GIF Here
+![img](https://i.imgur.com/JgoDcCe.png)
 
 - Create a `Todos New Page` under the route `/todos/new`
   - Contains a `Formik Form` with `Yup Validation` (make this a component! so you can reuse it in `Part 5`)
@@ -60,7 +60,7 @@ GIF Here
   - Upon successful submission, redirect to `/todos/:id`
 
 ## Part 5 Edit
-GIF Here
+![img](https://i.imgur.com/0gxNVJE.png)
 
 - Create a `Todos Edit Page` under the route `/todos/:id/edit`
   - Send request to API and store data to context
@@ -68,14 +68,12 @@ GIF Here
   - Upon successful submission, redirect to `/todos/:id`
 
 ## Part 6 Destroy
-GIF here
+![img](https://i.imgur.com/bZdz3dQ.png)
 
 - Add a `Delete Button` to `Todos Show Page`
   - Upon successful delete, redirect to `/todos`
 
 # Bonus
-GIF Here
-
 - Add a `Dropdown` to each todos in `Todos Index Page`
   - has a `Show Option` to open a modal to show the contents of the `Todo`
   - has an `Edit Option` to open a modal with a form to edit the contents of `Todo`
