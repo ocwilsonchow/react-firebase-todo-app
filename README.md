@@ -32,14 +32,14 @@ Create a todos website!
   - A `New Todo Link`  to `/todos/new`
 
 ## Part 2 - Index
-![img](https://i.imgur.com/5frE1yn.png)
+![img](https://i.imgur.com/8a8Q4XK.png)
 
 - Create a `Todos Index Page` under the route `/todos`
   - Send request to API and store data to context
   - Displays the list data that **redirects** to `/todos/:id`
 
 ## Part 3 Show
-![img](https://i.imgur.com/jUahWp6.png)
+![img](https://i.imgur.com/ZqDCGuC.png)
 
 - An `Edit Button Link` to `/todos/:id/edit`
 - Create a `Todos Show Page` under the route `/todos/:id`
@@ -47,7 +47,7 @@ Create a todos website!
   - Displays the data
 
 ## Part 4 New
-![img](https://i.imgur.com/JgoDcCe.png)
+![img](https://i.imgur.com/ohxjHTQ.png)
 
 - Create a `Todos New Page` under the route `/todos/new`
   - Contains a `Formik Form` with `Yup Validation` (make this a component! so you can reuse it in `Part 5`)
@@ -60,7 +60,7 @@ Create a todos website!
   - Upon successful submission, redirect to `/todos/:id`
 
 ## Part 5 Edit
-![img](https://i.imgur.com/0gxNVJE.png)
+![img](https://i.imgur.com/GRqrODd.png)
 
 - Create a `Todos Edit Page` under the route `/todos/:id/edit`
   - Send request to API and store data to context
@@ -68,7 +68,7 @@ Create a todos website!
   - Upon successful submission, redirect to `/todos/:id`
 
 ## Part 6 Destroy
-![img](https://i.imgur.com/bZdz3dQ.png)
+![img](https://i.imgur.com/b8usBTT.png)
 
 - Add a `Delete Button` to `Todos Show Page`
   - Upon successful delete, redirect to `/todos`
