@@ -20,6 +20,8 @@ Create a todos website!
 
 > NOTE - You will need to refer to https://github.com/dented-academy/api-todos for the API Doc
 
+> NOTE - Remember that all the links have to be `react-router components`
+
 ## Part 1 - Navbar
 ![img](https://i.imgur.com/Lgoe5lp.png)
 ![img](https://i.imgur.com/PeipJdP.png)
@@ -37,13 +39,12 @@ Create a todos website!
   - Displays the list data that **redirects** to `/todos/:id`
 
 ## Part 3 Show
-GIF here
+![img](https://i.imgur.com/5OdH3Hw.png)
 
+- An `Edit Button Link` to `/todos/:id/edit`
 - Create a `Todos Show Page` under the route `/todos/:id`
   - Send request to API and store data to context
   - Displays the data
-    - Include a list for TodoItems data
-    - Each `TodoItem` have an `Edit Button Link` to `/todos/:id/edit`
 
 ## Part 4 New
 GIF Here
