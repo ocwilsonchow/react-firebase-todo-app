@@ -68,7 +68,7 @@ Create a todos website!
   - Upon successful submission, redirect to `/todos/:id`
 
 ## Part 6 Destroy
-![img](https://i.imgur.com/b8usBTT.png)
+![img](https://i.imgur.com/usEqx53.png)
 
 - Add a `Delete Button` to `Todos Show Page`
   - Upon successful delete, redirect to `/todos`
