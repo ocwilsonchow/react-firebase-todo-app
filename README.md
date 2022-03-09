@@ -21,7 +21,8 @@ Create a todos website!
 > NOTE - You will need to refer to https://github.com/dented-academy/api-todos for the API Doc
 
 ## Part 1 - Navbar
-GIF Here
+![img](https://i.imgur.com/Lgoe5lp.png)
+![img](https://i.imgur.com/PeipJdP.png)
 
 - Create a `Navbar` that will be shown on all routes
   - A `Home Brand Link`  to `/`
@@ -29,19 +30,20 @@ GIF Here
   - A `New Todo Link`  to `/todos/new`
 
 ## Part 2 - Index
-GIF Here
+![img](https://i.imgur.com/5frE1yn.png)
 
 - Create a `Todos Index Page` under the route `/todos`
   - Send request to API and store data to context
   - Displays the list data that **redirects** to `/todos/:id`
 
 ## Part 3 Show
-GIF Here
+GIF here
 
 - Create a `Todos Show Page` under the route `/todos/:id`
   - Send request to API and store data to context
   - Displays the data
-
+    - Include a list for TodoItems data
+    - Each `TodoItem` have an `Edit Button Link` to `/todos/:id/edit`
 
 ## Part 4 New
 GIF Here
