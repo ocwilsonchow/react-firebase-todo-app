@@ -71,6 +71,7 @@ Create a todos website!
 ![img](https://i.imgur.com/usEqx53.png)
 
 - Add a `Delete Button` to `Todos Show Page`
+  - Upon click, show `window.confirm Alert`. If true, then delete todo
   - Upon successful delete, redirect to `/todos`
 
 # Bonus
