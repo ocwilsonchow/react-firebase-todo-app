@@ -11,10 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
     "axios": "^0.26.0",
     "bootstrap": "^5.1.3",
     "express": "^4.17.3",
     "formik": "^2.2.9",
+    "framer-motion": "^6.2.8",
     "immer": "^9.0.12",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -85,22 +90,33 @@
       "node": true
     },
     "rules": {
-      "semi": [2, "never"],
-      "comma-dangle": [2, "never"],
+      "semi": [
+        2,
+        "never"
+      ],
+      "comma-dangle": [
+        2,
+        "never"
+      ],
       "max-len": 0,
       "radix": 0,
       "global-require": 0,
       "prefer-object-spread": 0,
       "object-curly-newline": 0,
-      "no-param-reassign": [2, {
-        "props": true,
-        "ignorePropertyModificationsFor": ["draft"]
-      }],
+      "no-param-reassign": [
+        2,
+        {
+          "props": true,
+          "ignorePropertyModificationsFor": [
+            "draft"
+          ]
+        }
+      ],
       "function-paren-newline": 0,
       "import/no-extraneous-dependencies": 0,
       "import/prefer-default-export": 0,
       "react/jsx-props-no-spreading": 0,
-      "react/jsx-one-expression-per-line" : 0,
+      "react/jsx-one-expression-per-line": 0,
       "react/jsx-closing-tag-location": 0,
       "react/destructuring-assignment": 0,
       "react/no-array-index-key": 0,
@@ -115,9 +131,15 @@
       "import/resolver": {
         "alias": {
           "map": [
-            ["@", "./src"]
+            [
+              "@",
+              "./src"
+            ]
           ],
-          "extensions": [".js", ".jsx"]
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
         }
       }
     }

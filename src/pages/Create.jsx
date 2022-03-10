@@ -1,12 +1,12 @@
 import React from 'react'
 import { Flex, Center } from '@chakra-ui/react'
 
-function PagesHome() {
+function PagesCreate() {
   return (
     <Flex>
-      <Center w="100%">Home</Center>
+      <Center w="100%">Create New Todo</Center>
     </Flex>
   )
 }
 
-export default PagesHome
+export default PagesCreate
