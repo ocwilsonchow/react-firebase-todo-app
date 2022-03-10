@@ -4,7 +4,7 @@ import { Flex, Center } from '@chakra-ui/react'
 function PagesHome() {
   return (
     <Flex>
-      <Center w="100%">Home</Center>
+      <Center w="100%" fontSize="3xl" fontWeight="extrabold">Home Page</Center>
     </Flex>
   )
 }
