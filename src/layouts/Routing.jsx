@@ -10,6 +10,7 @@ import PagesCreate from '@/pages/todos/Create'
 import PagesNotFound from '@/pages/NotFound'
 
 import { TodosProvider } from '@/contexts/ToDos'
+import PagesEdit from '@/pages/todos/Edit'
 
 function Routing() {
   return (
@@ -21,6 +22,7 @@ function Routing() {
             <Route path="/todos" element={<PagesIndex />} />
             <Route path="/todos/:id" element={<PagesShow />} />
             <Route path="/todos/new" element={<PagesCreate />} />
+            <Route path="/todos/:id/edit" element={<PagesEdit />} />
             <Route path="*" element={<PagesNotFound />} />
           </Route>
         </Routes>
