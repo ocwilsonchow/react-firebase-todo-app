@@ -2,16 +2,35 @@ import React, { useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import produce from 'immer'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase-config'
 
 const TodosContext = createContext()
 
 const initTodos = { data: null, error: null, loading: true }
 const initTodo = { data: null, error: null, loading: true }
 
+const todosCollectionRef = collection(db, 'todos')
+
 export function TodosProvider({ children }) {
   const [todos, setTodos] = useState(initTodos)
   const [todo, setTodo] = useState(initTodo)
+  const [fbTodos, setFbTodos] = useState([])
   const navigation = useNavigate()
+
+  const getFbTodos = async () => {
+    setFbTodos(initTodos)
+    setFbTodos(await produce(initTodos, async (draft) => {
+      try {
+        const resp = await getDocs(todosCollectionRef)
+        draft.data = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      } catch (err) {
+        draft.error = err.response.data
+      } finally {
+        draft.loading = false
+      }
+    }))
+  }
 
   const getTodos = async () => {
     setTodos(initTodos)
@@ -94,7 +113,10 @@ export function TodosProvider({ children }) {
     getTodo,
     createTodo,
     editTodo,
-    destroyTodo
+    destroyTodo,
+    getFbTodos,
+    fbTodos,
+    setFbTodos
   }
 
   return <TodosContext.Provider value={contextData}>{children}</TodosContext.Provider>

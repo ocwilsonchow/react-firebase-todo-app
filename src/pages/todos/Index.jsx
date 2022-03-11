@@ -21,10 +21,7 @@ import Loading from '@/components/Loading'
 import FormsTodoChange from '@/forms/todos/Change'
 
 function PagesIndex() {
-  const {
-    todos: { data, error, loading },
-    getTodos
-  } = useTodos()
+  const { todos: { data, error, loading }, getTodos } = useTodos()
 
   const bgColor = useColorModeValue('gray.100', 'teal.700')
   const txtColor = useColorModeValue('gray.500', 'gray.400')
