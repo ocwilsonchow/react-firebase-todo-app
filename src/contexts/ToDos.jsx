@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import produce from 'immer'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, addDoc, Timestamp, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase-config'
 
 const TodosContext = createContext()
@@ -23,13 +23,38 @@ export function TodosProvider({ children }) {
     setFbTodos(await produce(initTodos, async (draft) => {
       try {
         const resp = await getDocs(todosCollectionRef)
-        draft.data = resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        draft.data = resp.docs.map((d) => ({ ...d.data(), id: d.id }))
       } catch (err) {
         draft.error = err.response.data
       } finally {
         draft.loading = false
       }
     }))
+  }
+
+  const createFbTodos = async (data) => {
+    console.log(data) // eslint-disable-line
+    try {
+      const resp = await addDoc(collection(db, 'todos'), { ...data, createdAt: serverTimestamp() })
+       console.log(resp)  // eslint-disable-line
+      navigation('/')
+    } catch (err) {
+      console.log(err) // eslint-disable-line
+    }
+  }
+
+  const createTodo = async (data) => {
+    try {
+      const resp = await axios({
+        method: 'POST',
+        url: 'https://fswdi-api-todos.herokuapp.com/api/todos',
+        data
+      })
+      console.log(resp)  // eslint-disable-line
+      navigation(`/todos/${resp.data.todo.id}`)
+    } catch (err) {
+      console.log(err)  // eslint-disable-line
+    }
   }
 
   const getTodos = async () => {
@@ -64,20 +89,6 @@ export function TodosProvider({ children }) {
         draft.loading = false
       }
     }))
-  }
-
-  const createTodo = async (data) => {
-    try {
-      const resp = await axios({
-        method: 'POST',
-        url: 'https://fswdi-api-todos.herokuapp.com/api/todos',
-        data
-      })
-      console.log(resp)  // eslint-disable-line
-      navigation(`/todos/${resp.data.todo.id}`)
-    } catch (err) {
-      console.log(err)  // eslint-disable-line
-    }
   }
 
   const editTodo = async (data) => {
@@ -116,7 +127,8 @@ export function TodosProvider({ children }) {
     destroyTodo,
     getFbTodos,
     fbTodos,
-    setFbTodos
+    setFbTodos,
+    createFbTodos
   }
 
   return <TodosContext.Provider value={contextData}>{children}</TodosContext.Provider>

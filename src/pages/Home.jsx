@@ -3,10 +3,11 @@ import { Flex, Center } from '@chakra-ui/react'
 
 import { useTodos } from '@/contexts/ToDos'
 import Loading from '@/components/Loading'
+import FormsTodoChange from '@/forms/todos/Change'
 
 function PagesHome() {
   const {
-    fbTodos: { data, error, loading }, getFbTodos
+    fbTodos: { data, error, loading }, getFbTodos, createFbTodos
   } = useTodos()
 
   useEffect(() => {
@@ -20,7 +21,9 @@ function PagesHome() {
 
   return (
     <Flex>
-      <Center w="100%" fontSize="3xl" fontWeight="extrabold">Home Page</Center>
+      <Center w="100%" fontSize="3xl" fontWeight="extrabold">
+        <FormsTodoChange handleSubmit={createFbTodos} />
+      </Center>
     </Flex>
   )
 }
