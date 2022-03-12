@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import produce from 'immer'
-import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore'
+import { collection, getDocs, addDoc, serverTimestamp, deleteDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase-config'
 
 const TodosContext = createContext()
@@ -36,7 +36,17 @@ export function TodosProvider({ children }) {
     try {
       const resp = await addDoc(collection(db, 'todos'), { ...data, createdAt: serverTimestamp() })
        console.log(resp)  // eslint-disable-line
-      navigation('/')
+      getFbTodos()
+    } catch (err) {
+      console.log(err) // eslint-disable-line
+    }
+  }
+
+  const destroyFbTodos = async (id) => {
+    console.log(id) // eslint-disable-line
+    try {
+      await deleteDoc(doc(db, 'todos', id))
+      getFbTodos()
     } catch (err) {
       console.log(err) // eslint-disable-line
     }
@@ -127,7 +137,8 @@ export function TodosProvider({ children }) {
     getFbTodos,
     fbTodos,
     setFbTodos,
-    createFbTodos
+    createFbTodos,
+    destroyFbTodos
   }
 
   return <TodosContext.Provider value={contextData}>{children}</TodosContext.Provider>

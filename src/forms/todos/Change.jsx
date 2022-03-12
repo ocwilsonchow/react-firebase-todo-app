@@ -24,7 +24,7 @@ function FormsTodoChange({ data, handleSubmit, handleDelete }) {
   const bgColor = useColorModeValue('gray.100', 'teal.700')
 
   return (
-    <Flex m={3} p={8} bg={bgColor} borderRadius="md">
+    <Flex m={3} p={4} bg={bgColor} borderRadius="md">
       <Formik
         initialValues={data || initialValues}
         validationSchema={
@@ -44,7 +44,7 @@ function FormsTodoChange({ data, handleSubmit, handleDelete }) {
             handleBlur }) => (
               <Form>
                 <Flex justifyContent="space-between">
-                  {data && <Badge colorScheme="blue" mb={4}>#{values?.id}</Badge>}
+                  {data && <Badge colorScheme="blue" mb={3}>#{values?.id}</Badge>}
                   {data && (
                   <Popover placement="bottom" closeOnBlur={false}>
                     <PopoverTrigger>
@@ -67,7 +67,7 @@ function FormsTodoChange({ data, handleSubmit, handleDelete }) {
                         pb={4}
                       >
                         <ButtonGroup size="sm">
-                          <Button colorScheme="red" onClick={(e) => { e.preventDefault(); handleDelete(data.id) }}>Confirm</Button>
+                          <Button colorScheme="red" onClick={() => { handleDelete(data.id) }}>Confirm</Button>
                         </ButtonGroup>
                       </PopoverFooter>
                     </PopoverContent>
@@ -82,7 +82,8 @@ function FormsTodoChange({ data, handleSubmit, handleDelete }) {
                     value={values.title}
                     variant="flushed"
                     placeholder="Title"
-                    fontSize="2xl"
+                    fontSize="xl"
+                    fontWeight="bold"
                     borderColor="teal.300"
                   />
                   <ErrorMessage className="invalid-feedback" name="title" component="div" />

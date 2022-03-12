@@ -67,7 +67,7 @@ function PagesIndex() {
       <Flex justifyContent="center" flexWrap="wrap" p={2}>
         {data.map((item) => (
 
-          <Flex flexDir="column" key={item.id} bg={bgColor} m={3} p={5} w="240px" minH="250px" maxH="300px" overflow="auto" borderRadius="lg">
+          <Flex flexDir="column" key={item.id} bg={bgColor} m={3} p={5} w="240px" minH="250px" maxH="350px" overflow="auto" borderRadius="lg">
             <Flex justifyContent="space-between" mb={2}>
               <Box>
                 <Badge fontSize="xs" colorScheme="yellow">#{item.id}</Badge>
