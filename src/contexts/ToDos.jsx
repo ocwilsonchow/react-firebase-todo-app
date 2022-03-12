@@ -2,7 +2,7 @@ import React, { useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import produce from 'immer'
-import { collection, getDocs, addDoc, Timestamp, serverTimestamp } from 'firebase/firestore'
+import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase-config'
 
 const TodosContext = createContext()
@@ -33,7 +33,6 @@ export function TodosProvider({ children }) {
   }
 
   const createFbTodos = async (data) => {
-    console.log(data) // eslint-disable-line
     try {
       const resp = await addDoc(collection(db, 'todos'), { ...data, createdAt: serverTimestamp() })
        console.log(resp)  // eslint-disable-line
